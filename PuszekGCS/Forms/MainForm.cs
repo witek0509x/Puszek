@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PuszekGCS.lib;
 using PuszekGCS.Source;
+using PuszekGCS.threads;
 namespace PuszekGCS
 {
     public partial class MainForm : Form
@@ -29,7 +31,7 @@ namespace PuszekGCS
             cm = new Communication();
             ml = new MissionLogin();
             ml.ShowDialog(this);
-            DB db = new DB(@"\data\" + Mission.name);
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -45,6 +47,20 @@ namespace PuszekGCS
 
         }
 
-        
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            DB db = new DB(@"\data\" + Mission.name);
+            db.Query("create table temp1 (time real, value real)");
+            db.Query("create table temp1 (time real, value real)");
+            db.Query("create table temp2 (time real, value real)");
+            db.Query("create table press1 (time real, value real)");
+            db.Query("create table press2 (time real, value real)");
+            db.Query("create table gyrox (time real, value real)");
+            db.Query("create table gyroy (time real, value real)");
+            db.Query("create table gyroz (time real, value real)");
+            UpdateThread updateThread = new UpdateThread(db);
+            Thread thread = new Thread(new ThreadStart(updateThread.Run));
+            thread.Start();
+        }
     }
 }

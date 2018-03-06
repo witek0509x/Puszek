@@ -2,6 +2,7 @@
 using System.Data.SQLite;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace PuszekGCS.lib
 {
@@ -99,9 +100,10 @@ namespace PuszekGCS.lib
 
                 return wynik;
             }
-            catch
+            catch(Exception e)
             {
-                return "something went wrong";
+                MessageBox.Show(e.Message);
+                return "";
             }
         }
 

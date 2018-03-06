@@ -32,11 +32,14 @@ namespace PuszekGCS.threads
             {
                 foreach (var atribut in atributs)
                 {
-                    actualTime = 0;//float.Parse(db.Query("select min(time) from " + atribut));
-                    Command.ReciveUpdate(atribut, actualTime);
-                    
-                    Thread.Sleep(1000);
+                    string tmp = db.Query("select MAX(time) from " + atribut);
+                    actualTime = float.Parse(tmp);
+                    if (Command.CheckTopicality(atribut, actualTime) == 0)
+                    {
+                        Command.ReciveUpdate(atribut, actualTime);
+                    }
                 }
+                Thread.Sleep(1000);
             }
         }
     }

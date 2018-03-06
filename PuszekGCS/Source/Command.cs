@@ -14,9 +14,9 @@ namespace PuszekGCS.Source
         
         static string command = "";
         
-        static public void Create()
+        public static void Create()
         {
-            command = "create " + Mission.name;
+            command = "Create " + Mission.name;
             CommandExecute();
         }
         /*static public void SendUpdate(string name, string atribut, List<string> times, List<string> values)
@@ -29,7 +29,7 @@ namespace PuszekGCS.Source
             }
             CommandExecute();
         }*/
-        static public string ReciveUpdate(string Atribut, float MissionTime)
+        public static string ReciveUpdate(string Atribut, float MissionTime)
         {
             command = "ReciveUpdate " + Mission.name + " " + Atribut + " " + MissionTime.ToString();
             return CommandExecute();
@@ -43,7 +43,7 @@ namespace PuszekGCS.Source
             foreach (string element in splited) Atributs.Add(element);
             return Atributs;
         }*/
-        static public int CheckTopicality(string atribut, float time)
+        public static int CheckTopicality(string atribut, float time)
         {
             command = "CheckTopicality " + Mission.name + " " + atribut + " " + time.ToString();
             string respond = CommandExecute();
@@ -58,7 +58,7 @@ namespace PuszekGCS.Source
             clear();
             return respond;
         }
-        static public string ReciveLastImage()
+        public static string ReciveLastImage()
         {
             command = "GetLastImage " + Mission.name;
             CommandExecute();

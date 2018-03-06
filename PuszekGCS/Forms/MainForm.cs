@@ -23,7 +23,8 @@ namespace PuszekGCS
         Log lg;
         Communication cm;
         MissionLogin ml;
-        
+        UpdateThread updateThread;
+        private Thread thread;
         public MainForm()
         {
             InitializeComponent();
@@ -49,18 +50,30 @@ namespace PuszekGCS
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DB db = new DB(@"\data\" + Mission.name);
+            DB db = new DB(@"data\" + Mission.name + ".db");
+            updateThread =  new UpdateThread(db);
+            Command.Create();
             db.Query("create table temp1 (time real, value real)");
-            db.Query("create table temp1 (time real, value real)");
+            db.Query("insert into temp1 (0, 0)");
             db.Query("create table temp2 (time real, value real)");
+            db.Query("insert into temp2 (0, 0)");
             db.Query("create table press1 (time real, value real)");
+            db.Query("insert into press1 (0, 0)");
             db.Query("create table press2 (time real, value real)");
+            db.Query("insert into press2 (0, 0)");
             db.Query("create table gyrox (time real, value real)");
+            db.Query("insert into gyrox (0, 0)");
             db.Query("create table gyroy (time real, value real)");
+            db.Query("insert into gyroy (0, 0)");
             db.Query("create table gyroz (time real, value real)");
-            UpdateThread updateThread = new UpdateThread(db);
-            Thread thread = new Thread(new ThreadStart(updateThread.Run));
+            db.Query("insert into gyroz (0, 0)");
+            thread = new Thread(new ThreadStart(updateThread.Run));
             thread.Start();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            thread.Abort();
         }
     }
 }

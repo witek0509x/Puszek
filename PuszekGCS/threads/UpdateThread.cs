@@ -36,11 +36,31 @@ namespace PuszekGCS.threads
                     actualTime = float.Parse(tmp);
                     if (Command.CheckTopicality(atribut, actualTime) == 0)
                     {
-                        Command.ReciveUpdate(atribut, actualTime);
+                        UpdateDB(Command.ReciveUpdate(atribut, actualTime),atribut);
                     }
                 }
                 Thread.Sleep(1000);
+
             }
         }
+
+        private void UpdateDB(string input, string atribut)
+        {
+            string[] splited = input.Split(' ');
+            for (int i = 0; i < splited.Length; i += 2)
+            {
+                string query = "insert into " + atribut + "(time, value) values (" + splited[i] + ", " + splited [i+1] + ")";
+                try
+                {
+                    db.Query(query);
+                }
+                catch (Exception e)
+                {
+                    throw;
+                }
+                
+            }
+        }
+
     }
 }

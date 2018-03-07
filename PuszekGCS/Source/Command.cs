@@ -50,6 +50,14 @@ namespace PuszekGCS.Source
             if (respond == "No") return 0;
             else return 1;
         }
+
+        public static bool Exist(string name)
+        {
+            command = "Exist " + name;
+            string respond = CommandExecute();
+            return (respond == "Yes");
+
+        }
         static string CommandExecute()
         {
             try

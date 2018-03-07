@@ -26,32 +26,27 @@ namespace PuszekGCS
         private void button1_Click(object sender, EventArgs e)
         {
             string exist = "";
-            try { exist = TCP.Connect(IP.Text, "Exist " + name.Text, Int32.Parse(port.Text)); }
-            catch
-            {
-                MessageBox.Show("Wrong data error");
-                return;
-            }
-            if (exist == "no")
-            {
-                var result = MessageBox.Show("Mission with given name doesn't exist. Do you want to create it", "Creating new mission", MessageBoxButtons.YesNo);
-                if(result == DialogResult.No) return;
-            }
+            
             Mission.IP = IP.Text;
             Mission.name = name.Text;
             Mission.port = Int32.Parse(port.Text);
-            if (exist == "no")
+            try
             {
-                try
+                if (!Command.Exist(name.Text))
                 {
+                    var result = MessageBox.Show("Mission with given name doesn't exist. Do you want to create it","Creating new mission", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No) return;
                     Command.Create();
                 }
-                catch
-                {
-                    return;
-                }
-                
+
             }
+            catch
+            {
+                MessageBox.Show("Wrong ip adress");
+                return;
+            }
+
+            MessageBox.Show("Connected");
             this.Close();
         }
 

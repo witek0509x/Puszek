@@ -36,9 +36,6 @@
             this.PictureSpace = new System.Windows.Forms.Panel();
             this.ActualPicture = new System.Windows.Forms.PictureBox();
             this.RighPanel = new System.Windows.Forms.Panel();
-            this.ConsolePanel = new System.Windows.Forms.Panel();
-            this.ConsoleWindow = new System.Windows.Forms.RichTextBox();
-            this.ConsoleInput = new System.Windows.Forms.TextBox();
             this.DataPanel = new System.Windows.Forms.Panel();
             this.ClockLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,12 +45,21 @@
             this.PressureNameLabel = new System.Windows.Forms.Label();
             this.TemperatureNameLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ConsolePanel = new System.Windows.Forms.Panel();
+            this.ConsoleInput = new System.Windows.Forms.TextBox();
+            this.ConsoleWindow = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.IPTitle = new System.Windows.Forms.Label();
+            this.IPValue = new System.Windows.Forms.Label();
+            this.PortTitle = new System.Windows.Forms.Label();
+            this.PortValue = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.PictureSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActualPicture)).BeginInit();
             this.RighPanel.SuspendLayout();
-            this.ConsolePanel.SuspendLayout();
             this.DataPanel.SuspendLayout();
+            this.ConsolePanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -115,39 +121,9 @@
             this.RighPanel.Size = new System.Drawing.Size(780, 649);
             this.RighPanel.TabIndex = 2;
             // 
-            // ConsolePanel
-            // 
-            this.ConsolePanel.Controls.Add(this.ConsoleWindow);
-            this.ConsolePanel.Controls.Add(this.ConsoleInput);
-            this.ConsolePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ConsolePanel.Location = new System.Drawing.Point(0, 443);
-            this.ConsolePanel.Name = "ConsolePanel";
-            this.ConsolePanel.Size = new System.Drawing.Size(780, 206);
-            this.ConsolePanel.TabIndex = 1;
-            // 
-            // ConsoleWindow
-            // 
-            this.ConsoleWindow.BackColor = System.Drawing.SystemColors.MenuText;
-            this.ConsoleWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ConsoleWindow.ForeColor = System.Drawing.SystemColors.Info;
-            this.ConsoleWindow.Location = new System.Drawing.Point(0, 20);
-            this.ConsoleWindow.Name = "ConsoleWindow";
-            this.ConsoleWindow.Size = new System.Drawing.Size(780, 186);
-            this.ConsoleWindow.TabIndex = 1;
-            this.ConsoleWindow.Text = "";
-            // 
-            // ConsoleInput
-            // 
-            this.ConsoleInput.BackColor = System.Drawing.SystemColors.MenuText;
-            this.ConsoleInput.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ConsoleInput.ForeColor = System.Drawing.SystemColors.Info;
-            this.ConsoleInput.Location = new System.Drawing.Point(0, 0);
-            this.ConsoleInput.Name = "ConsoleInput";
-            this.ConsoleInput.Size = new System.Drawing.Size(780, 20);
-            this.ConsoleInput.TabIndex = 0;
-            // 
             // DataPanel
             // 
+            this.DataPanel.Controls.Add(this.panel1);
             this.DataPanel.Controls.Add(this.ClockLabel);
             this.DataPanel.Controls.Add(this.label6);
             this.DataPanel.Controls.Add(this.AltitudeNameLabel);
@@ -158,7 +134,7 @@
             this.DataPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.DataPanel.Location = new System.Drawing.Point(0, 0);
             this.DataPanel.Name = "DataPanel";
-            this.DataPanel.Size = new System.Drawing.Size(780, 443);
+            this.DataPanel.Size = new System.Drawing.Size(780, 419);
             this.DataPanel.TabIndex = 0;
             // 
             // ClockLabel
@@ -236,6 +212,88 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ConsolePanel
+            // 
+            this.ConsolePanel.Controls.Add(this.ConsoleWindow);
+            this.ConsolePanel.Controls.Add(this.ConsoleInput);
+            this.ConsolePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ConsolePanel.Location = new System.Drawing.Point(0, 419);
+            this.ConsolePanel.Name = "ConsolePanel";
+            this.ConsolePanel.Size = new System.Drawing.Size(780, 230);
+            this.ConsolePanel.TabIndex = 1;
+            // 
+            // ConsoleInput
+            // 
+            this.ConsoleInput.BackColor = System.Drawing.SystemColors.MenuText;
+            this.ConsoleInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ConsoleInput.ForeColor = System.Drawing.SystemColors.Info;
+            this.ConsoleInput.Location = new System.Drawing.Point(0, 0);
+            this.ConsoleInput.Name = "ConsoleInput";
+            this.ConsoleInput.Size = new System.Drawing.Size(780, 20);
+            this.ConsoleInput.TabIndex = 0;
+            // 
+            // ConsoleWindow
+            // 
+            this.ConsoleWindow.BackColor = System.Drawing.SystemColors.MenuText;
+            this.ConsoleWindow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ConsoleWindow.ForeColor = System.Drawing.SystemColors.Info;
+            this.ConsoleWindow.Location = new System.Drawing.Point(0, 20);
+            this.ConsoleWindow.Name = "ConsoleWindow";
+            this.ConsoleWindow.Size = new System.Drawing.Size(780, 210);
+            this.ConsoleWindow.TabIndex = 1;
+            this.ConsoleWindow.Text = "";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.PortValue);
+            this.panel1.Controls.Add(this.PortTitle);
+            this.panel1.Controls.Add(this.IPValue);
+            this.panel1.Controls.Add(this.IPTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 286);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(780, 133);
+            this.panel1.TabIndex = 2;
+            // 
+            // IPTitle
+            // 
+            this.IPTitle.AutoSize = true;
+            this.IPTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.IPTitle.Location = new System.Drawing.Point(62, 63);
+            this.IPTitle.Name = "IPTitle";
+            this.IPTitle.Size = new System.Drawing.Size(31, 20);
+            this.IPTitle.TabIndex = 0;
+            this.IPTitle.Text = "IP:";
+            this.IPTitle.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // IPValue
+            // 
+            this.IPValue.AutoSize = true;
+            this.IPValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.IPValue.Location = new System.Drawing.Point(99, 63);
+            this.IPValue.Name = "IPValue";
+            this.IPValue.Size = new System.Drawing.Size(0, 20);
+            this.IPValue.TabIndex = 0;
+            // 
+            // PortTitle
+            // 
+            this.PortTitle.AutoSize = true;
+            this.PortTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PortTitle.Location = new System.Drawing.Point(497, 63);
+            this.PortTitle.Name = "PortTitle";
+            this.PortTitle.Size = new System.Drawing.Size(47, 20);
+            this.PortTitle.TabIndex = 0;
+            this.PortTitle.Text = "Port:";
+            // 
+            // PortValue
+            // 
+            this.PortValue.AutoSize = true;
+            this.PortValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PortValue.Location = new System.Drawing.Point(560, 63);
+            this.PortValue.Name = "PortValue";
+            this.PortValue.Size = new System.Drawing.Size(0, 20);
+            this.PortValue.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,10 +312,12 @@
             this.PictureSpace.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ActualPicture)).EndInit();
             this.RighPanel.ResumeLayout(false);
-            this.ConsolePanel.ResumeLayout(false);
-            this.ConsolePanel.PerformLayout();
             this.DataPanel.ResumeLayout(false);
             this.DataPanel.PerformLayout();
+            this.ConsolePanel.ResumeLayout(false);
+            this.ConsolePanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,9 +332,6 @@
         private System.Windows.Forms.Panel PictureSpace;
         private System.Windows.Forms.PictureBox ActualPicture;
         private System.Windows.Forms.Panel RighPanel;
-        private System.Windows.Forms.Panel ConsolePanel;
-        private System.Windows.Forms.RichTextBox ConsoleWindow;
-        private System.Windows.Forms.TextBox ConsoleInput;
         private System.Windows.Forms.Panel DataPanel;
         private System.Windows.Forms.Label ClockLabel;
         private System.Windows.Forms.Label label6;
@@ -284,6 +341,14 @@
         private System.Windows.Forms.Label PressureNameLabel;
         private System.Windows.Forms.Label TemperatureNameLabel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel ConsolePanel;
+        private System.Windows.Forms.RichTextBox ConsoleWindow;
+        private System.Windows.Forms.TextBox ConsoleInput;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label PortValue;
+        private System.Windows.Forms.Label PortTitle;
+        private System.Windows.Forms.Label IPValue;
+        private System.Windows.Forms.Label IPTitle;
     }
 }
 

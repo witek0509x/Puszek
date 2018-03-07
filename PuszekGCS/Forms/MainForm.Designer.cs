@@ -36,29 +36,35 @@
             this.PictureSpace = new System.Windows.Forms.Panel();
             this.ActualPicture = new System.Windows.Forms.PictureBox();
             this.RighPanel = new System.Windows.Forms.Panel();
-            this.DataPanel = new System.Windows.Forms.Panel();
-            this.ClockLabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.AltitudeNameLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.HigroscopyNameLabel = new System.Windows.Forms.Label();
-            this.PressureNameLabel = new System.Windows.Forms.Label();
-            this.TemperatureNameLabel = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ConsolePanel = new System.Windows.Forms.Panel();
-            this.ConsoleInput = new System.Windows.Forms.TextBox();
             this.ConsoleWindow = new System.Windows.Forms.RichTextBox();
+            this.ConsoleInput = new System.Windows.Forms.TextBox();
+            this.DataPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.IPTitle = new System.Windows.Forms.Label();
-            this.IPValue = new System.Windows.Forms.Label();
-            this.PortTitle = new System.Windows.Forms.Label();
             this.PortValue = new System.Windows.Forms.Label();
+            this.PortTitle = new System.Windows.Forms.Label();
+            this.IPValue = new System.Windows.Forms.Label();
+            this.IPTitle = new System.Windows.Forms.Label();
+            this.ClockLabel = new System.Windows.Forms.Label();
+            this.GyroyLabel = new System.Windows.Forms.Label();
+            this.GyrozLabel = new System.Windows.Forms.Label();
+            this.GyroxLabel = new System.Windows.Forms.Label();
+            this.PressureLabel = new System.Windows.Forms.Label();
+            this.TemperatureLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TemperatureValue = new System.Windows.Forms.Label();
+            this.PressureValue = new System.Windows.Forms.Label();
+            this.GyroxValue = new System.Windows.Forms.Label();
+            this.GyrozValue = new System.Windows.Forms.Label();
+            this.GyroyValue = new System.Windows.Forms.Label();
+            this.connected = new System.Windows.Forms.Label();
+            this.connect = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.PictureSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActualPicture)).BeginInit();
             this.RighPanel.SuspendLayout();
-            this.DataPanel.SuspendLayout();
             this.ConsolePanel.SuspendLayout();
+            this.DataPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,97 +127,6 @@
             this.RighPanel.Size = new System.Drawing.Size(780, 649);
             this.RighPanel.TabIndex = 2;
             // 
-            // DataPanel
-            // 
-            this.DataPanel.Controls.Add(this.panel1);
-            this.DataPanel.Controls.Add(this.ClockLabel);
-            this.DataPanel.Controls.Add(this.label6);
-            this.DataPanel.Controls.Add(this.AltitudeNameLabel);
-            this.DataPanel.Controls.Add(this.label4);
-            this.DataPanel.Controls.Add(this.HigroscopyNameLabel);
-            this.DataPanel.Controls.Add(this.PressureNameLabel);
-            this.DataPanel.Controls.Add(this.TemperatureNameLabel);
-            this.DataPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DataPanel.Location = new System.Drawing.Point(0, 0);
-            this.DataPanel.Name = "DataPanel";
-            this.DataPanel.Size = new System.Drawing.Size(780, 419);
-            this.DataPanel.TabIndex = 0;
-            // 
-            // ClockLabel
-            // 
-            this.ClockLabel.AutoSize = true;
-            this.ClockLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClockLabel.Location = new System.Drawing.Point(603, 15);
-            this.ClockLabel.Name = "ClockLabel";
-            this.ClockLabel.Size = new System.Drawing.Size(165, 40);
-            this.ClockLabel.TabIndex = 1;
-            this.ClockLabel.Text = "00:00:00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(34, 222);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "label1";
-            // 
-            // AltitudeNameLabel
-            // 
-            this.AltitudeNameLabel.AutoSize = true;
-            this.AltitudeNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AltitudeNameLabel.Location = new System.Drawing.Point(34, 151);
-            this.AltitudeNameLabel.Name = "AltitudeNameLabel";
-            this.AltitudeNameLabel.Size = new System.Drawing.Size(76, 20);
-            this.AltitudeNameLabel.TabIndex = 0;
-            this.AltitudeNameLabel.Text = "Altitude:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(34, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "label1";
-            // 
-            // HigroscopyNameLabel
-            // 
-            this.HigroscopyNameLabel.AutoSize = true;
-            this.HigroscopyNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HigroscopyNameLabel.Location = new System.Drawing.Point(34, 110);
-            this.HigroscopyNameLabel.Name = "HigroscopyNameLabel";
-            this.HigroscopyNameLabel.Size = new System.Drawing.Size(103, 20);
-            this.HigroscopyNameLabel.TabIndex = 0;
-            this.HigroscopyNameLabel.Text = "Higroscopy:";
-            this.HigroscopyNameLabel.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // PressureNameLabel
-            // 
-            this.PressureNameLabel.AutoSize = true;
-            this.PressureNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PressureNameLabel.Location = new System.Drawing.Point(34, 73);
-            this.PressureNameLabel.Name = "PressureNameLabel";
-            this.PressureNameLabel.Size = new System.Drawing.Size(85, 20);
-            this.PressureNameLabel.TabIndex = 0;
-            this.PressureNameLabel.Text = "Pressure:";
-            // 
-            // TemperatureNameLabel
-            // 
-            this.TemperatureNameLabel.AutoSize = true;
-            this.TemperatureNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TemperatureNameLabel.Location = new System.Drawing.Point(34, 37);
-            this.TemperatureNameLabel.Name = "TemperatureNameLabel";
-            this.TemperatureNameLabel.Size = new System.Drawing.Size(116, 20);
-            this.TemperatureNameLabel.TabIndex = 0;
-            this.TemperatureNameLabel.Text = "Temperature:";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // ConsolePanel
             // 
             this.ConsolePanel.Controls.Add(this.ConsoleWindow);
@@ -221,16 +136,6 @@
             this.ConsolePanel.Name = "ConsolePanel";
             this.ConsolePanel.Size = new System.Drawing.Size(780, 230);
             this.ConsolePanel.TabIndex = 1;
-            // 
-            // ConsoleInput
-            // 
-            this.ConsoleInput.BackColor = System.Drawing.SystemColors.MenuText;
-            this.ConsoleInput.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ConsoleInput.ForeColor = System.Drawing.SystemColors.Info;
-            this.ConsoleInput.Location = new System.Drawing.Point(0, 0);
-            this.ConsoleInput.Name = "ConsoleInput";
-            this.ConsoleInput.Size = new System.Drawing.Size(780, 20);
-            this.ConsoleInput.TabIndex = 0;
             // 
             // ConsoleWindow
             // 
@@ -243,9 +148,41 @@
             this.ConsoleWindow.TabIndex = 1;
             this.ConsoleWindow.Text = "";
             // 
+            // ConsoleInput
+            // 
+            this.ConsoleInput.BackColor = System.Drawing.SystemColors.MenuText;
+            this.ConsoleInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ConsoleInput.ForeColor = System.Drawing.SystemColors.Info;
+            this.ConsoleInput.Location = new System.Drawing.Point(0, 0);
+            this.ConsoleInput.Name = "ConsoleInput";
+            this.ConsoleInput.Size = new System.Drawing.Size(780, 20);
+            this.ConsoleInput.TabIndex = 0;
+            // 
+            // DataPanel
+            // 
+            this.DataPanel.Controls.Add(this.panel1);
+            this.DataPanel.Controls.Add(this.ClockLabel);
+            this.DataPanel.Controls.Add(this.GyroyValue);
+            this.DataPanel.Controls.Add(this.GyroyLabel);
+            this.DataPanel.Controls.Add(this.GyrozValue);
+            this.DataPanel.Controls.Add(this.GyrozLabel);
+            this.DataPanel.Controls.Add(this.GyroxValue);
+            this.DataPanel.Controls.Add(this.GyroxLabel);
+            this.DataPanel.Controls.Add(this.PressureValue);
+            this.DataPanel.Controls.Add(this.PressureLabel);
+            this.DataPanel.Controls.Add(this.TemperatureValue);
+            this.DataPanel.Controls.Add(this.TemperatureLabel);
+            this.DataPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DataPanel.Location = new System.Drawing.Point(0, 0);
+            this.DataPanel.Name = "DataPanel";
+            this.DataPanel.Size = new System.Drawing.Size(780, 419);
+            this.DataPanel.TabIndex = 0;
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.connect);
             this.panel1.Controls.Add(this.PortValue);
+            this.panel1.Controls.Add(this.connected);
             this.panel1.Controls.Add(this.PortTitle);
             this.panel1.Controls.Add(this.IPValue);
             this.panel1.Controls.Add(this.IPTitle);
@@ -255,44 +192,175 @@
             this.panel1.Size = new System.Drawing.Size(780, 133);
             this.panel1.TabIndex = 2;
             // 
+            // PortValue
+            // 
+            this.PortValue.AutoSize = true;
+            this.PortValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PortValue.Location = new System.Drawing.Point(342, 63);
+            this.PortValue.Name = "PortValue";
+            this.PortValue.Size = new System.Drawing.Size(0, 20);
+            this.PortValue.TabIndex = 0;
+            // 
+            // PortTitle
+            // 
+            this.PortTitle.AutoSize = true;
+            this.PortTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PortTitle.Location = new System.Drawing.Point(279, 63);
+            this.PortTitle.Name = "PortTitle";
+            this.PortTitle.Size = new System.Drawing.Size(47, 20);
+            this.PortTitle.TabIndex = 0;
+            this.PortTitle.Text = "Port:";
+            // 
+            // IPValue
+            // 
+            this.IPValue.AutoSize = true;
+            this.IPValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.IPValue.Location = new System.Drawing.Point(91, 63);
+            this.IPValue.Name = "IPValue";
+            this.IPValue.Size = new System.Drawing.Size(0, 20);
+            this.IPValue.TabIndex = 0;
+            // 
             // IPTitle
             // 
             this.IPTitle.AutoSize = true;
             this.IPTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.IPTitle.Location = new System.Drawing.Point(62, 63);
+            this.IPTitle.Location = new System.Drawing.Point(54, 63);
             this.IPTitle.Name = "IPTitle";
             this.IPTitle.Size = new System.Drawing.Size(31, 20);
             this.IPTitle.TabIndex = 0;
             this.IPTitle.Text = "IP:";
             this.IPTitle.Click += new System.EventHandler(this.label1_Click);
             // 
-            // IPValue
+            // ClockLabel
             // 
-            this.IPValue.AutoSize = true;
-            this.IPValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.IPValue.Location = new System.Drawing.Point(99, 63);
-            this.IPValue.Name = "IPValue";
-            this.IPValue.Size = new System.Drawing.Size(0, 20);
-            this.IPValue.TabIndex = 0;
+            this.ClockLabel.AutoSize = true;
+            this.ClockLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClockLabel.Location = new System.Drawing.Point(603, 15);
+            this.ClockLabel.Name = "ClockLabel";
+            this.ClockLabel.Size = new System.Drawing.Size(165, 40);
+            this.ClockLabel.TabIndex = 1;
+            this.ClockLabel.Text = "00:00:00";
             // 
-            // PortTitle
+            // GyroyLabel
             // 
-            this.PortTitle.AutoSize = true;
-            this.PortTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PortTitle.Location = new System.Drawing.Point(497, 63);
-            this.PortTitle.Name = "PortTitle";
-            this.PortTitle.Size = new System.Drawing.Size(47, 20);
-            this.PortTitle.TabIndex = 0;
-            this.PortTitle.Text = "Port:";
+            this.GyroyLabel.AutoSize = true;
+            this.GyroyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroyLabel.Location = new System.Drawing.Point(31, 169);
+            this.GyroyLabel.Name = "GyroyLabel";
+            this.GyroyLabel.Size = new System.Drawing.Size(113, 20);
+            this.GyroyLabel.TabIndex = 0;
+            this.GyroyLabel.Text = "Gyroscope y:";
             // 
-            // PortValue
+            // GyrozLabel
             // 
-            this.PortValue.AutoSize = true;
-            this.PortValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PortValue.Location = new System.Drawing.Point(560, 63);
-            this.PortValue.Name = "PortValue";
-            this.PortValue.Size = new System.Drawing.Size(0, 20);
-            this.PortValue.TabIndex = 0;
+            this.GyrozLabel.AutoSize = true;
+            this.GyrozLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyrozLabel.Location = new System.Drawing.Point(31, 201);
+            this.GyrozLabel.Name = "GyrozLabel";
+            this.GyrozLabel.Size = new System.Drawing.Size(114, 20);
+            this.GyrozLabel.TabIndex = 0;
+            this.GyrozLabel.Text = "Gyroscope z:";
+            // 
+            // GyroxLabel
+            // 
+            this.GyroxLabel.AutoSize = true;
+            this.GyroxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroxLabel.Location = new System.Drawing.Point(31, 133);
+            this.GyroxLabel.Name = "GyroxLabel";
+            this.GyroxLabel.Size = new System.Drawing.Size(113, 20);
+            this.GyroxLabel.TabIndex = 0;
+            this.GyroxLabel.Text = "Gyroscope x:";
+            this.GyroxLabel.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // PressureLabel
+            // 
+            this.PressureLabel.AutoSize = true;
+            this.PressureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PressureLabel.Location = new System.Drawing.Point(31, 96);
+            this.PressureLabel.Name = "PressureLabel";
+            this.PressureLabel.Size = new System.Drawing.Size(85, 20);
+            this.PressureLabel.TabIndex = 0;
+            this.PressureLabel.Text = "Pressure:";
+            // 
+            // TemperatureLabel
+            // 
+            this.TemperatureLabel.AutoSize = true;
+            this.TemperatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TemperatureLabel.Location = new System.Drawing.Point(31, 60);
+            this.TemperatureLabel.Name = "TemperatureLabel";
+            this.TemperatureLabel.Size = new System.Drawing.Size(116, 20);
+            this.TemperatureLabel.TabIndex = 0;
+            this.TemperatureLabel.Text = "Temperature:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // TemperatureValue
+            // 
+            this.TemperatureValue.AutoSize = true;
+            this.TemperatureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TemperatureValue.Location = new System.Drawing.Point(153, 60);
+            this.TemperatureValue.Name = "TemperatureValue";
+            this.TemperatureValue.Size = new System.Drawing.Size(0, 20);
+            this.TemperatureValue.TabIndex = 0;
+            // 
+            // PressureValue
+            // 
+            this.PressureValue.AutoSize = true;
+            this.PressureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PressureValue.Location = new System.Drawing.Point(153, 96);
+            this.PressureValue.Name = "PressureValue";
+            this.PressureValue.Size = new System.Drawing.Size(0, 20);
+            this.PressureValue.TabIndex = 0;
+            // 
+            // GyroxValue
+            // 
+            this.GyroxValue.AutoSize = true;
+            this.GyroxValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroxValue.Location = new System.Drawing.Point(153, 133);
+            this.GyroxValue.Name = "GyroxValue";
+            this.GyroxValue.Size = new System.Drawing.Size(0, 20);
+            this.GyroxValue.TabIndex = 0;
+            this.GyroxValue.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // GyrozValue
+            // 
+            this.GyrozValue.AutoSize = true;
+            this.GyrozValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyrozValue.Location = new System.Drawing.Point(153, 201);
+            this.GyrozValue.Name = "GyrozValue";
+            this.GyrozValue.Size = new System.Drawing.Size(0, 20);
+            this.GyrozValue.TabIndex = 0;
+            // 
+            // GyroyValue
+            // 
+            this.GyroyValue.AutoSize = true;
+            this.GyroyValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroyValue.Location = new System.Drawing.Point(153, 169);
+            this.GyroyValue.Name = "GyroyValue";
+            this.GyroyValue.Size = new System.Drawing.Size(0, 20);
+            this.GyroyValue.TabIndex = 0;
+            // 
+            // connected
+            // 
+            this.connected.AutoSize = true;
+            this.connected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.connected.Location = new System.Drawing.Point(548, 63);
+            this.connected.Name = "connected";
+            this.connected.Size = new System.Drawing.Size(0, 20);
+            this.connected.TabIndex = 0;
+            // 
+            // connect
+            // 
+            this.connect.Location = new System.Drawing.Point(610, 63);
+            this.connect.Name = "connect";
+            this.connect.Size = new System.Drawing.Size(75, 23);
+            this.connect.TabIndex = 1;
+            this.connect.Text = "Connect";
+            this.connect.UseVisualStyleBackColor = true;
+            this.connect.Visible = false;
+            this.connect.Click += new System.EventHandler(this.connect_Click);
             // 
             // MainForm
             // 
@@ -312,10 +380,10 @@
             this.PictureSpace.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ActualPicture)).EndInit();
             this.RighPanel.ResumeLayout(false);
-            this.DataPanel.ResumeLayout(false);
-            this.DataPanel.PerformLayout();
             this.ConsolePanel.ResumeLayout(false);
             this.ConsolePanel.PerformLayout();
+            this.DataPanel.ResumeLayout(false);
+            this.DataPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -334,12 +402,11 @@
         private System.Windows.Forms.Panel RighPanel;
         private System.Windows.Forms.Panel DataPanel;
         private System.Windows.Forms.Label ClockLabel;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label AltitudeNameLabel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label HigroscopyNameLabel;
-        private System.Windows.Forms.Label PressureNameLabel;
-        private System.Windows.Forms.Label TemperatureNameLabel;
+        private System.Windows.Forms.Label GyroyLabel;
+        private System.Windows.Forms.Label GyrozLabel;
+        private System.Windows.Forms.Label GyroxLabel;
+        private System.Windows.Forms.Label PressureLabel;
+        private System.Windows.Forms.Label TemperatureLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel ConsolePanel;
         private System.Windows.Forms.RichTextBox ConsoleWindow;
@@ -349,6 +416,13 @@
         private System.Windows.Forms.Label PortTitle;
         private System.Windows.Forms.Label IPValue;
         private System.Windows.Forms.Label IPTitle;
+        private System.Windows.Forms.Label GyroyValue;
+        private System.Windows.Forms.Label GyrozValue;
+        private System.Windows.Forms.Label GyroxValue;
+        private System.Windows.Forms.Label PressureValue;
+        private System.Windows.Forms.Label TemperatureValue;
+        private System.Windows.Forms.Button connect;
+        private System.Windows.Forms.Label connected;
     }
 }
 

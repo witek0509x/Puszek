@@ -47,6 +47,7 @@ namespace PuszekGCS
             }
 
             MessageBox.Show("Connected");
+            Mission.connected = true;
             this.Close();
         }
 

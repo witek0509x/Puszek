@@ -12,6 +12,6 @@ namespace PuszekGCS.Source
         public static string IP;
         public static int port;
         public static string name;
-
+        public static bool connected;
     }
 }

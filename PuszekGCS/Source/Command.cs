@@ -19,30 +19,13 @@ namespace PuszekGCS.Source
             command = "Create " + Mission.name;
             CommandExecute();
         }
-        /*static public void SendUpdate(string name, string atribut, List<string> times, List<string> values)
-        {
-            command = "SendUpdate " + name + " " + atribut;
-            for(int i = 0; i < values.Count; i++)
-            {
-                command += " " + times[i];
-                command += " " + values[i];
-            }
-            CommandExecute();
-        }*/
+       
         public static string ReciveUpdate(string Atribut, float MissionTime)
         {
             command = "ReciveUpdate " + Mission.name + " " + Atribut + " " + MissionTime.ToString();
             return CommandExecute();
         }
-        /*static public List<string> GetColumns(string name)
-        {
-            command = "GetColumns " + name;
-            string response = CommandExecute();
-            List<string> Atributs = new List<string>();
-            string[] splited = response.Split(' ');
-            foreach (string element in splited) Atributs.Add(element);
-            return Atributs;
-        }*/
+        
         public static int CheckTopicality(string atribut, float time)
         {
             command = "CheckTopicality " + Mission.name + " " + atribut + " " + time.ToString();
@@ -71,6 +54,7 @@ namespace PuszekGCS.Source
             catch (Exception e)
             {
                 return "";
+                throw e;
             }
             
         }

@@ -16,7 +16,7 @@ namespace PuszekGCS
 {
     public partial class MainForm : Form
     {
-        int seconds;
+        int seconds = 0;
         float altitude;
         float temperature;
         float higroscopy;
@@ -25,6 +25,7 @@ namespace PuszekGCS
         Communication cm;
         MissionLogin ml;
         UpdateThread updateThread;
+        DB db;
         private Thread thread;
         public MainForm()
         {
@@ -43,6 +44,26 @@ namespace PuszekGCS
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+            string value = db.Query("select value from tmp1 where time = (select max(tmie) from tmp1");
+            string[] splited = value.Split(' ');
+            TemperatureValue.Text = splited[splited.Length - 1];
+            value = db.Query("select value from press1 where time = (select max(tmie) from press1");
+            splited = value.Split(' ');
+            PressureValue.Text = splited[splited.Length - 1];
+            value = db.Query("select value from gyrox where time = (select max(tmie) from gyrox");
+            splited = value.Split(' ');
+            GyroxValue.Text = splited[splited.Length - 1];
+            value = db.Query("select value from gyroy where time = (select max(tmie) from gyroy");
+            splited = value.Split(' ');
+            GyroyValue.Text = splited[splited.Length - 1];
+            value = db.Query("select value from gyroz where time = (select max(tmie) from gyroz");
+            splited = value.Split(' ');
+            GyrozValue.Text = splited[splited.Length - 1];
+            seconds++;
+            ClockLabel.Text = GenerateTimer(seconds);
+            connected.Text = Mission.connected == true ? "connected" : "disconnected";
+            connect.Visible = !Mission.connected;
+
         }
         private void cammunicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -53,7 +74,7 @@ namespace PuszekGCS
         {
             PortValue.Text = Mission.port.ToString();
             IPValue.Text = Mission.IP;
-            DB db = new DB(@"data\" + Mission.name + ".db");
+            db = new DB(@"data\" + Mission.name + ".db");
             updateThread =  new UpdateThread(db);
             if (!MissionLocalyExist(Mission.name))
             {
@@ -89,6 +110,27 @@ namespace PuszekGCS
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private string GenerateTimer(int seconds)
+        {
+            int hours = (seconds - (seconds % 3600)) / 3600;
+            seconds = seconds % 3600;
+            int minutes = (seconds - (seconds % 60)) / 60;
+            seconds = seconds % 60;
+            return addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds);
+        }
+
+        private string addZero(int number)
+        {
+            return number < 10 ? "0" + number.ToString() : number.ToString();
+
+        }
+
+        private void connect_Click(object sender, EventArgs e)
+        {
+            thread.Start();
         }
     }
 }

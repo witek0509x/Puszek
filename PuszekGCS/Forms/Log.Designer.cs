@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ListOfLog = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // ListOfLog
@@ -39,6 +41,12 @@
             this.ListOfLog.Name = "ListOfLog";
             this.ListOfLog.Size = new System.Drawing.Size(724, 577);
             this.ListOfLog.TabIndex = 0;
+            this.ListOfLog.SelectedIndexChanged += new System.EventHandler(this.ListOfLog_SelectedIndexChanged);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Log
             // 
@@ -48,6 +56,7 @@
             this.Controls.Add(this.ListOfLog);
             this.Name = "Log";
             this.Text = "Log";
+            this.Load += new System.EventHandler(this.Log_Load);
             this.ResumeLayout(false);
 
         }
@@ -55,5 +64,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox ListOfLog;
+        private System.Windows.Forms.Timer timer1;
     }
 }

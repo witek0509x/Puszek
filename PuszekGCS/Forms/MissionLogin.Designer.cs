@@ -63,6 +63,7 @@
             this.IP.Name = "IP";
             this.IP.Size = new System.Drawing.Size(164, 20);
             this.IP.TabIndex = 2;
+            this.IP.Text = "127.0.0.1";
             // 
             // label2
             // 
@@ -79,6 +80,7 @@
             this.port.Name = "port";
             this.port.Size = new System.Drawing.Size(164, 20);
             this.port.TabIndex = 2;
+            this.port.Text = "8001";
             // 
             // label3
             // 

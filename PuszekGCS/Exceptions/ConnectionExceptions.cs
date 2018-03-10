@@ -14,4 +14,12 @@ namespace PuszekGCS.Exceptions
             MessageBox.Show("Unable to connect to server. Call Wojtek to repair it", "Connection error");
         }
     }
+
+    class ServerException : Exception
+    {
+        public ServerException(string message)
+        {
+            MessageBox.Show(message);
+        }
+    }
 }

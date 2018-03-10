@@ -43,20 +43,12 @@ namespace PuszekGCS.Source
         }
         static string CommandExecute()
         {
-            try
-            {
+            
                 string respond;
                 try { respond = TCP.Connect(Mission.IP, command, Mission.port); }
                 catch (Exception e) { throw new UnableToConnectToServerException(); }
                 clear();
                 return respond;
-            }
-            catch (Exception e)
-            {
-                return "";
-                throw e;
-            }
-            
         }
         public static string ReciveLastImage()
         {

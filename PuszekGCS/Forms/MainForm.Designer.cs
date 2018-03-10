@@ -41,24 +41,25 @@
             this.ConsoleInput = new System.Windows.Forms.TextBox();
             this.DataPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.connect = new System.Windows.Forms.Button();
             this.PortValue = new System.Windows.Forms.Label();
+            this.connected = new System.Windows.Forms.Label();
             this.PortTitle = new System.Windows.Forms.Label();
             this.IPValue = new System.Windows.Forms.Label();
             this.IPTitle = new System.Windows.Forms.Label();
             this.ClockLabel = new System.Windows.Forms.Label();
+            this.GyroyValue = new System.Windows.Forms.Label();
             this.GyroyLabel = new System.Windows.Forms.Label();
+            this.GyrozValue = new System.Windows.Forms.Label();
             this.GyrozLabel = new System.Windows.Forms.Label();
+            this.GyroxValue = new System.Windows.Forms.Label();
             this.GyroxLabel = new System.Windows.Forms.Label();
+            this.PressureValue = new System.Windows.Forms.Label();
             this.PressureLabel = new System.Windows.Forms.Label();
+            this.TemperatureValue = new System.Windows.Forms.Label();
             this.TemperatureLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.TemperatureValue = new System.Windows.Forms.Label();
-            this.PressureValue = new System.Windows.Forms.Label();
-            this.GyroxValue = new System.Windows.Forms.Label();
-            this.GyrozValue = new System.Windows.Forms.Label();
-            this.GyroyValue = new System.Windows.Forms.Label();
-            this.connected = new System.Windows.Forms.Label();
-            this.connect = new System.Windows.Forms.Button();
+            this.MissionNameLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.PictureSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActualPicture)).BeginInit();
@@ -79,6 +80,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1468, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // cammunicationToolStripMenuItem
             // 
@@ -92,12 +94,14 @@
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
             this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.dataToolStripMenuItem.Text = "Data";
+            this.dataToolStripMenuItem.Click += new System.EventHandler(this.dataToolStripMenuItem_Click);
             // 
             // PictureSpace
             // 
@@ -157,21 +161,24 @@
             this.ConsoleInput.Name = "ConsoleInput";
             this.ConsoleInput.Size = new System.Drawing.Size(780, 20);
             this.ConsoleInput.TabIndex = 0;
+            this.ConsoleInput.TextChanged += new System.EventHandler(this.ConsoleInput_TextChanged);
+            this.ConsoleInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConsoleInput_KeyDown);
             // 
             // DataPanel
             // 
-            this.DataPanel.Controls.Add(this.panel1);
-            this.DataPanel.Controls.Add(this.ClockLabel);
-            this.DataPanel.Controls.Add(this.GyroyValue);
-            this.DataPanel.Controls.Add(this.GyroyLabel);
-            this.DataPanel.Controls.Add(this.GyrozValue);
-            this.DataPanel.Controls.Add(this.GyrozLabel);
-            this.DataPanel.Controls.Add(this.GyroxValue);
-            this.DataPanel.Controls.Add(this.GyroxLabel);
-            this.DataPanel.Controls.Add(this.PressureValue);
-            this.DataPanel.Controls.Add(this.PressureLabel);
-            this.DataPanel.Controls.Add(this.TemperatureValue);
+            this.DataPanel.Controls.Add(this.MissionNameLabel);
             this.DataPanel.Controls.Add(this.TemperatureLabel);
+            this.DataPanel.Controls.Add(this.TemperatureValue);
+            this.DataPanel.Controls.Add(this.PressureLabel);
+            this.DataPanel.Controls.Add(this.panel1);
+            this.DataPanel.Controls.Add(this.PressureValue);
+            this.DataPanel.Controls.Add(this.ClockLabel);
+            this.DataPanel.Controls.Add(this.GyroxLabel);
+            this.DataPanel.Controls.Add(this.GyrozValue);
+            this.DataPanel.Controls.Add(this.GyroxValue);
+            this.DataPanel.Controls.Add(this.GyrozLabel);
+            this.DataPanel.Controls.Add(this.GyroyLabel);
+            this.DataPanel.Controls.Add(this.GyroyValue);
             this.DataPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.DataPanel.Location = new System.Drawing.Point(0, 0);
             this.DataPanel.Name = "DataPanel";
@@ -192,6 +199,17 @@
             this.panel1.Size = new System.Drawing.Size(780, 133);
             this.panel1.TabIndex = 2;
             // 
+            // connect
+            // 
+            this.connect.Location = new System.Drawing.Point(610, 63);
+            this.connect.Name = "connect";
+            this.connect.Size = new System.Drawing.Size(75, 23);
+            this.connect.TabIndex = 1;
+            this.connect.Text = "Connect";
+            this.connect.UseVisualStyleBackColor = true;
+            this.connect.Visible = false;
+            this.connect.Click += new System.EventHandler(this.connect_Click);
+            // 
             // PortValue
             // 
             this.PortValue.AutoSize = true;
@@ -200,6 +218,15 @@
             this.PortValue.Name = "PortValue";
             this.PortValue.Size = new System.Drawing.Size(0, 20);
             this.PortValue.TabIndex = 0;
+            // 
+            // connected
+            // 
+            this.connected.AutoSize = true;
+            this.connected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.connected.Location = new System.Drawing.Point(486, 63);
+            this.connected.Name = "connected";
+            this.connected.Size = new System.Drawing.Size(0, 20);
+            this.connected.TabIndex = 0;
             // 
             // PortTitle
             // 
@@ -241,126 +268,129 @@
             this.ClockLabel.TabIndex = 1;
             this.ClockLabel.Text = "00:00:00";
             // 
+            // GyroyValue
+            // 
+            this.GyroyValue.AutoSize = true;
+            this.GyroyValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroyValue.Location = new System.Drawing.Point(145, 147);
+            this.GyroyValue.Name = "GyroyValue";
+            this.GyroyValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.GyroyValue.Size = new System.Drawing.Size(0, 44);
+            this.GyroyValue.TabIndex = 0;
+            // 
             // GyroyLabel
             // 
             this.GyroyLabel.AutoSize = true;
             this.GyroyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GyroyLabel.Location = new System.Drawing.Point(31, 169);
+            this.GyroyLabel.Location = new System.Drawing.Point(26, 147);
             this.GyroyLabel.Name = "GyroyLabel";
-            this.GyroyLabel.Size = new System.Drawing.Size(113, 20);
+            this.GyroyLabel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.GyroyLabel.Size = new System.Drawing.Size(113, 44);
             this.GyroyLabel.TabIndex = 0;
             this.GyroyLabel.Text = "Gyroscope y:";
-            // 
-            // GyrozLabel
-            // 
-            this.GyrozLabel.AutoSize = true;
-            this.GyrozLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GyrozLabel.Location = new System.Drawing.Point(31, 201);
-            this.GyrozLabel.Name = "GyrozLabel";
-            this.GyrozLabel.Size = new System.Drawing.Size(114, 20);
-            this.GyrozLabel.TabIndex = 0;
-            this.GyrozLabel.Text = "Gyroscope z:";
-            // 
-            // GyroxLabel
-            // 
-            this.GyroxLabel.AutoSize = true;
-            this.GyroxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GyroxLabel.Location = new System.Drawing.Point(31, 133);
-            this.GyroxLabel.Name = "GyroxLabel";
-            this.GyroxLabel.Size = new System.Drawing.Size(113, 20);
-            this.GyroxLabel.TabIndex = 0;
-            this.GyroxLabel.Text = "Gyroscope x:";
-            this.GyroxLabel.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // PressureLabel
-            // 
-            this.PressureLabel.AutoSize = true;
-            this.PressureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PressureLabel.Location = new System.Drawing.Point(31, 96);
-            this.PressureLabel.Name = "PressureLabel";
-            this.PressureLabel.Size = new System.Drawing.Size(85, 20);
-            this.PressureLabel.TabIndex = 0;
-            this.PressureLabel.Text = "Pressure:";
-            // 
-            // TemperatureLabel
-            // 
-            this.TemperatureLabel.AutoSize = true;
-            this.TemperatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TemperatureLabel.Location = new System.Drawing.Point(31, 60);
-            this.TemperatureLabel.Name = "TemperatureLabel";
-            this.TemperatureLabel.Size = new System.Drawing.Size(116, 20);
-            this.TemperatureLabel.TabIndex = 0;
-            this.TemperatureLabel.Text = "Temperature:";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // TemperatureValue
-            // 
-            this.TemperatureValue.AutoSize = true;
-            this.TemperatureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TemperatureValue.Location = new System.Drawing.Point(153, 60);
-            this.TemperatureValue.Name = "TemperatureValue";
-            this.TemperatureValue.Size = new System.Drawing.Size(0, 20);
-            this.TemperatureValue.TabIndex = 0;
-            // 
-            // PressureValue
-            // 
-            this.PressureValue.AutoSize = true;
-            this.PressureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PressureValue.Location = new System.Drawing.Point(153, 96);
-            this.PressureValue.Name = "PressureValue";
-            this.PressureValue.Size = new System.Drawing.Size(0, 20);
-            this.PressureValue.TabIndex = 0;
-            // 
-            // GyroxValue
-            // 
-            this.GyroxValue.AutoSize = true;
-            this.GyroxValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GyroxValue.Location = new System.Drawing.Point(153, 133);
-            this.GyroxValue.Name = "GyroxValue";
-            this.GyroxValue.Size = new System.Drawing.Size(0, 20);
-            this.GyroxValue.TabIndex = 0;
-            this.GyroxValue.Click += new System.EventHandler(this.label3_Click);
             // 
             // GyrozValue
             // 
             this.GyrozValue.AutoSize = true;
             this.GyrozValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GyrozValue.Location = new System.Drawing.Point(153, 201);
+            this.GyrozValue.Location = new System.Drawing.Point(145, 191);
             this.GyrozValue.Name = "GyrozValue";
-            this.GyrozValue.Size = new System.Drawing.Size(0, 20);
+            this.GyrozValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.GyrozValue.Size = new System.Drawing.Size(0, 44);
             this.GyrozValue.TabIndex = 0;
             // 
-            // GyroyValue
+            // GyrozLabel
             // 
-            this.GyroyValue.AutoSize = true;
-            this.GyroyValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GyroyValue.Location = new System.Drawing.Point(153, 169);
-            this.GyroyValue.Name = "GyroyValue";
-            this.GyroyValue.Size = new System.Drawing.Size(0, 20);
-            this.GyroyValue.TabIndex = 0;
+            this.GyrozLabel.AutoSize = true;
+            this.GyrozLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyrozLabel.Location = new System.Drawing.Point(25, 191);
+            this.GyrozLabel.Name = "GyrozLabel";
+            this.GyrozLabel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.GyrozLabel.Size = new System.Drawing.Size(114, 44);
+            this.GyrozLabel.TabIndex = 0;
+            this.GyrozLabel.Text = "Gyroscope z:";
             // 
-            // connected
+            // GyroxValue
             // 
-            this.connected.AutoSize = true;
-            this.connected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.connected.Location = new System.Drawing.Point(548, 63);
-            this.connected.Name = "connected";
-            this.connected.Size = new System.Drawing.Size(0, 20);
-            this.connected.TabIndex = 0;
+            this.GyroxValue.AutoSize = true;
+            this.GyroxValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroxValue.Location = new System.Drawing.Point(145, 103);
+            this.GyroxValue.Name = "GyroxValue";
+            this.GyroxValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.GyroxValue.Size = new System.Drawing.Size(0, 44);
+            this.GyroxValue.TabIndex = 0;
+            this.GyroxValue.Click += new System.EventHandler(this.label3_Click);
             // 
-            // connect
+            // GyroxLabel
             // 
-            this.connect.Location = new System.Drawing.Point(610, 63);
-            this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(75, 23);
-            this.connect.TabIndex = 1;
-            this.connect.Text = "Connect";
-            this.connect.UseVisualStyleBackColor = true;
-            this.connect.Visible = false;
-            this.connect.Click += new System.EventHandler(this.connect_Click);
+            this.GyroxLabel.AutoSize = true;
+            this.GyroxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GyroxLabel.Location = new System.Drawing.Point(26, 103);
+            this.GyroxLabel.Name = "GyroxLabel";
+            this.GyroxLabel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.GyroxLabel.Size = new System.Drawing.Size(113, 44);
+            this.GyroxLabel.TabIndex = 0;
+            this.GyroxLabel.Text = "Gyroscope x:";
+            this.GyroxLabel.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // PressureValue
+            // 
+            this.PressureValue.AutoSize = true;
+            this.PressureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PressureValue.Location = new System.Drawing.Point(145, 59);
+            this.PressureValue.Name = "PressureValue";
+            this.PressureValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.PressureValue.Size = new System.Drawing.Size(0, 44);
+            this.PressureValue.TabIndex = 0;
+            // 
+            // PressureLabel
+            // 
+            this.PressureLabel.AutoSize = true;
+            this.PressureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PressureLabel.Location = new System.Drawing.Point(54, 59);
+            this.PressureLabel.Name = "PressureLabel";
+            this.PressureLabel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.PressureLabel.Size = new System.Drawing.Size(85, 44);
+            this.PressureLabel.TabIndex = 0;
+            this.PressureLabel.Text = "Pressure:";
+            this.PressureLabel.Click += new System.EventHandler(this.PressureLabel_Click);
+            // 
+            // TemperatureValue
+            // 
+            this.TemperatureValue.AutoSize = true;
+            this.TemperatureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TemperatureValue.Location = new System.Drawing.Point(149, 15);
+            this.TemperatureValue.Name = "TemperatureValue";
+            this.TemperatureValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.TemperatureValue.Size = new System.Drawing.Size(0, 44);
+            this.TemperatureValue.TabIndex = 0;
+            // 
+            // TemperatureLabel
+            // 
+            this.TemperatureLabel.AutoSize = true;
+            this.TemperatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TemperatureLabel.Location = new System.Drawing.Point(27, 15);
+            this.TemperatureLabel.Name = "TemperatureLabel";
+            this.TemperatureLabel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.TemperatureLabel.Size = new System.Drawing.Size(116, 44);
+            this.TemperatureLabel.TabIndex = 0;
+            this.TemperatureLabel.Text = "Temperature:";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // MissionNameLabel
+            // 
+            this.MissionNameLabel.AutoSize = true;
+            this.MissionNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.MissionNameLabel.Location = new System.Drawing.Point(627, 59);
+            this.MissionNameLabel.Name = "MissionNameLabel";
+            this.MissionNameLabel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.MissionNameLabel.Size = new System.Drawing.Size(55, 44);
+            this.MissionNameLabel.TabIndex = 0;
+            this.MissionNameLabel.Text = "Name";
             // 
             // MainForm
             // 
@@ -423,6 +453,7 @@
         private System.Windows.Forms.Label TemperatureValue;
         private System.Windows.Forms.Button connect;
         private System.Windows.Forms.Label connected;
+        private System.Windows.Forms.Label MissionNameLabel;
     }
 }
 

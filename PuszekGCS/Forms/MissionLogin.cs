@@ -42,7 +42,6 @@ namespace PuszekGCS
             }
             catch
             {
-                MessageBox.Show("Wrong ip adress");
                 return;
             }
 

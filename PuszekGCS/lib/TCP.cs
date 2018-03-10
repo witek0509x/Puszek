@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-
+using PuszekGCS.Exceptions;
 namespace PuszekGCS.lib
 {
     class TCP
@@ -13,6 +13,7 @@ namespace PuszekGCS.lib
         {
             try
             {
+                message = message.Replace(',', '.');
                 TcpClient client = new TcpClient(server, port);
                 Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
                 NetworkStream stream = client.GetStream();
@@ -23,6 +24,8 @@ namespace PuszekGCS.lib
                 responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
                 stream.Close();
                 client.Close();
+                if (responseData[0] == '!') throw new ServerException(responseData);
+                responseData = responseData.Replace(',', '.');
                 return responseData;
             }
             catch(Exception e)
